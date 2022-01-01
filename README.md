@@ -153,6 +153,7 @@ export default function GitHubUser({ username }) {
     /* Saves data if data changes */
     useEffect(() =>
     {
+        setLoading(false);
         if(noData(data))
             return;
         
@@ -172,7 +173,8 @@ export default function GitHubUser({ username }) {
     return (
 
        <div className='githubUser'>
-           <img></img>
+           <img src={data.avatar_url} alt={data.login} style={{width: "200px"}} />
+
            <div>
                <h1>{data.login}</h1>
                {data.name && <p>{data.name}</p>}
@@ -187,17 +189,25 @@ function getJsonFromLocalStorage(key)
 {
     return key && JSON.parse(localStorage.getItem(key));
 }
-
+function userNameEmptyOrNull(username)
+{
+    return !username;
+}
 function storeDataToLocalStorage(key, data)
 {
     key && localStorage.setItem(key, JSON.stringify(data));
 }
 
+function dataBelongsToUser(data, username)
+{
+    return data.login === username
+}
 
 function noData(data)
 {
     return !data;
 }
+
 
 
 
