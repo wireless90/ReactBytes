@@ -1,9 +1,10 @@
 # ReactBytes
 
-- [ReactBytes](#reactbytes)
-  * [Get Request](#get-request)
-  * [Local Storage](#local-storage)
-  * [Handling Promise States](#handling-promise-states)
+My React Learning Snippets
+
+  - [Get Request](#get-request)
+  - [Local Storage](#local-storage)
+  - [Handling Promise States](#handling-promise-states)
 
 
 ## Get Request
