@@ -1,6 +1,9 @@
 # ReactBytes
 
-
+- [ReactBytes](#reactbytes)
+  * [Get Request](#get-request)
+  * [Local Storage](#local-storage)
+  * [Handling Promise States](#handling-promise-states)
 
 
 ## Get Request
@@ -116,7 +119,7 @@ function noData(data)
 
 ```
 
-## Handling Promis States
+## Handling Promise States
 
 ```jsx
 import React, { useState, useEffect } from 'react';
