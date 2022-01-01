@@ -115,3 +115,86 @@ function noData(data)
 
 
 ```
+
+## Handling Promis States
+
+```jsx
+import React, { useState, useEffect } from 'react';
+
+export default function GitHubUser({ username }) {
+    const [data, setData] = useState(getJsonFromLocalStorage(username));
+    const [error, setError] = useState();
+    const [loading, setLoading] = useState(false);
+
+    /* Fetches the data if username changes */
+    useEffect(() =>
+    {
+        if(userNameEmptyOrNull(username))
+            return;
+        
+        if(dataBelongsToUser(data, username))
+            return;
+        
+        setLoading(true);
+
+        const uri = `https://api.github.com/users/${username}`
+
+        fetch(uri)
+            .then(response => response.json())
+            .then(setData)
+            .catch(console.error);
+
+    }, [username]);
+
+    /* Saves data if data changes */
+    useEffect(() =>
+    {
+        if(noData(data))
+            return;
+        
+        const { name, avatar_url, location } = data;
+
+        storeDataToLocalStorage(username, {name, username, avatar_url, location });
+
+    }, [data]);
+
+    if(loading)
+        return <h1>Loading ...</h1>;
+    if(error)
+        return <pre>{JSON.stringify(error, null, 2)}</pre>;
+    if(!data)
+        return null;
+    
+    return (
+
+       <div className='githubUser'>
+           <img></img>
+           <div>
+               <h1>{data.login}</h1>
+               {data.name && <p>{data.name}</p>}
+               {data.location && <p>{data.location}</p>}
+           </div>
+       </div>
+    );
+}
+
+/* Private functions */
+function getJsonFromLocalStorage(key)
+{
+    return key && JSON.parse(localStorage.getItem(key));
+}
+
+function storeDataToLocalStorage(key, data)
+{
+    key && localStorage.setItem(key, JSON.stringify(data));
+}
+
+
+function noData(data)
+{
+    return !data;
+}
+
+
+
+```
