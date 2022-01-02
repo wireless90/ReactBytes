@@ -105,7 +105,7 @@ But what if the list is huge? Our list component will take a long time to render
 ```jsx
 import faker from 'faker';
 
-const biglist = [...Array(1)].map(() =>({
+const biglist = [...Array(5000)].map(() =>({
   name: faker.name.findName(),
   email: faker.internet.email(),
   avatar: faker.internet.avatar()
