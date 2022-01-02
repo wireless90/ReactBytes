@@ -89,3 +89,12 @@ ReactDOM.render(
 );
 
 ```
+
+Now if there are any items in the list, the item will be rendered as specified in the render prop, `renderItemFunc`.
+
+![image](https://user-images.githubusercontent.com/12537739/147867623-bf3b1287-bd42-499d-bd39-ec497a4c08d1.png)
+
+
+If there are no items, the `renderIfEmpty` will be specified.
+![image](https://user-images.githubusercontent.com/12537739/147867632-30866dbe-533d-48cd-aa59-4a35e4794923.png)
+
