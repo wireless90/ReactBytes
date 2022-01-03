@@ -131,3 +131,38 @@ ReactDOM.render(
 );
 
 ```
+
+We can make use of libraries like `react-window`.
+
+```jsx
+import React from 'react';
+import ReactDOM from 'react-dom';
+import faker from 'faker';
+import { FixedSizeList } from 'react-window';
+
+const biglist = [...Array(2000)].map(() =>({
+  name: faker.name.findName(),
+  email: faker.internet.email(),
+  avatar: faker.internet.avatar()
+}));
+
+//react-window examples here> https://react-window.vercel.app/#/examples/list/fixed-size
+const rowFunc = ({index, style}) =>
+(
+  <div>
+    {biglist[index].name} - {biglist[index].email}
+  </div>
+);
+
+ReactDOM.render(
+    <FixedSizeList
+      height={200}
+      itemCount={biglist.length}
+      itemSize={35}
+    >
+      {rowFunc}
+    </FixedSizeList>,
+  document.getElementById('root')
+);
+
+```
