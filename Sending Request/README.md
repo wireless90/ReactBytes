@@ -3,6 +3,7 @@
   - [Get Request](#get-request)
   - [Local Storage](#local-storage)
   - [Handling Promise States](#handling-promise-states)
+  - [Custom useFetch Hook](#custom-useFetch-Hook)
 
 
 ## Get Request
