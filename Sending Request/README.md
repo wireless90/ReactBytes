@@ -213,3 +213,50 @@ function noData(data)
 ### Output
 
 ![image](https://user-images.githubusercontent.com/12537739/147851018-cc22a596-5de6-4fa7-a6e6-81cde2842abd.png)
+
+
+# Custom useFetch Hook
+
+We know that a request is either pending, successful, or failed. We can
+reuse the logic that’s necessary for making a fetch request by creating a
+custom hook.
+
+```jsx
+import { useState, useEffect } from 'react'
+
+export default function useFetch(uri) 
+{
+    const [data, setData] = useState();
+    const [error, setError] = useState();
+    const [loading, setLoading] = useState(true);
+
+    
+    /* Fetch whenever uri changes */
+    useEffect(() =>
+    {
+        if(uriIsNullOrEmpty(uri))
+            return;
+
+        fetch(uri)
+            .then(response => response.json())
+            .then(setData)
+            .then(() => setLoading(false))
+            .catch(setError);
+
+    }, [uri]);
+
+    return (
+        {
+            data,
+            error,
+            loading
+        }
+    );
+}
+
+function uriIsNullOrEmpty(uri) {
+    return !uri;
+}
+
+
+```
