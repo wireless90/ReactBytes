@@ -12,7 +12,7 @@ const menu = {
 };
 ```
 
-We can scope of `main` and `drinks` using implicit object destructuring.
+We can scope out `main` and `drinks` using implicit object destructuring.
 
 ```js
 const {main, drinks} = menu;
