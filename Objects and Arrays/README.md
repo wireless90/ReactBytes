@@ -124,7 +124,7 @@ Now `favLanguage` contains `"js"`.
 
 ## Implicit Array Destructuring using Discards
 
-If we want `python` to be our favourite language, we can use the discard operator by simply
+If we want `c#` to be our favourite language, we can use the discard operator by simply
 
 ```js
 const [, , , favLanguage] = ["js", "c++", "python", "c#"]; //skips the first 3 elements and stores the next element into favLanguage
