@@ -60,6 +60,40 @@ rules:
 arguments
 
 ## Data Transformation
+How does anything change in an application if the data is immutable? Functional programming is all about transforming data from one form to another. We’ll produce transformed copies using functions. These functions make our code less imperative and thus reduce complexity.
+
+There are two core functions that you must master in order to be proficient with functional Javascript:
+- Array.map
+- Array.reduce
+- Array.join
+
+Consider this array of strings.
+
+```jsx
+const colors = ['black', 'red', 'green', 'blue'];
+```
+
+How do we get a comma-delimted string out of it?
+
+```jsx
+const concatenatedColors = colors.join(', ');
+```
+
+How do we filter colors that start with the letter 'r'?
+
+```jsx
+const filteredColors = colors.filter(color => color.startsWith('r'));
+```
+
+DO NOT USE `Array.pop` or `Array.splice` AS THEY ARE NOT IMMUTABLE FUNCTIONS.
+
+How do we edit the lis to add a label called 'Color: '?
+
+```jsx
+const labeledColors = colors.map(color => `Color: ${color}`);
+```
+
+
 
 ## Higher-Order Functions
 
