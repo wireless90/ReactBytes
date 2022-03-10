@@ -93,9 +93,10 @@ const filteredColors = colors.filter(color => color.startsWith('r'));
 
 DO NOT USE `Array.pop` or `Array.splice` AS THEY ARE NOT IMMUTABLE FUNCTIONS.
 
-How do we edit the list to add a label called 'Color: '?
 
 ### Array.map
+
+How do we edit the list to add a label called 'Color: '?
 
 ```jsx
 const labeledColors = colors.map(color => `Color: ${color}`);
