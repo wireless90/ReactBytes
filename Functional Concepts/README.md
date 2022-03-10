@@ -76,12 +76,15 @@ Consider this array of strings.
 const colors = ['black', 'red', 'green', 'blue'];
 ```
 
+### Array.join
+
 How do we get a comma-delimted string out of it?
 
 ```jsx
 const concatenatedColors = colors.join(', ');
 ```
 
+### Array.filter
 How do we filter colors that start with the letter 'r'?
 
 ```jsx
@@ -90,11 +93,15 @@ const filteredColors = colors.filter(color => color.startsWith('r'));
 
 DO NOT USE `Array.pop` or `Array.splice` AS THEY ARE NOT IMMUTABLE FUNCTIONS.
 
-How do we edit the lis to add a label called 'Color: '?
+How do we edit the list to add a label called 'Color: '?
+
+### Array.map
 
 ```jsx
 const labeledColors = colors.map(color => `Color: ${color}`);
 ```
+
+### Array.reduce
 
 The `reduce` and `reduceRight` functions can be used to transform an array into any value, including a number, string, boolean, object, or even a function.
 
