@@ -66,6 +66,9 @@ There are two core functions that you must master in order to be proficient with
 - Array.map
 - Array.reduce
 - Array.join
+- Array.filter
+- Array.reduce
+- Array.reduceRight
 
 Consider this array of strings.
 
@@ -93,7 +96,28 @@ How do we edit the lis to add a label called 'Color: '?
 const labeledColors = colors.map(color => `Color: ${color}`);
 ```
 
+The `reduce` and `reduceRight` functions can be used to transform an array into any value, including a number, string, boolean, object, or even a function.
 
+Let’s say we need to find the maximum number in an array of numbers. We need to transform an array into a number; therefore, we can use reduce:
+
+
+
+```jsx
+const ages = [21, 18, 42, 40, 64, 63, 34];
+const maxAge = ages.reduce((max, age) => 
+{
+  if (age > max) 
+  {
+    return age;
+  } 
+  else 
+  {
+    return max;
+  }
+}, 0);
+```
+
+`Array.reduceRight` works the same way as Array.reduce; the difference is that it starts reducing from the end of the array rather than the beginning.
 
 ## Higher-Order Functions
 
