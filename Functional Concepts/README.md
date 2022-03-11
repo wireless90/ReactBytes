@@ -129,4 +129,20 @@ const maxAge = ages.reduce((max, age) =>
 
 ## Higher-Order Functions
 
+Higher-order functions are functions that can manipulate other functions. They can take functions in as arguments or return functions or both.
+
+```jsx
+const invokeIf = (condition, trueCallback, falseCallback) => condition ? trueCallback() : falseCallback();
+```
+
+Currying is a functional technique that involves the use of higher-order functions saving an argument to be used later by a lower order function.
+
+The following is an example of currying. The userLogs function hangs on to some information (the username) and returns a function that can be used and reused when the rest of the information (the message) is made available. In this example, log messages will all be prepended with the associated username. 
+
+```jsx
+const userlogs = username => message => console.log(`${username}: ${message}`);
+
+const log = userlogs('Razali');
+log('hello'); //Razali: hello
+```
 ## Recursion
