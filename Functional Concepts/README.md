@@ -145,4 +145,24 @@ const userlogs = username => message => console.log(`${username}: ${message}`);
 const log = userlogs('Razali');
 log('hello'); //Razali: hello
 ```
+
 ## Recursion
+
+```jsx
+const countdown = (value, fn) => {
+fn(value);
+return value > 0 ? countdown(value - 1, fn) : value;
+};
+countdown(10, value => console.log(value));
+// 10
+// 9
+// 8
+// 7
+// 6
+// 5
+// 4
+// 3
+// 2
+// 1
+// 0
+```
