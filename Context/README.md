@@ -30,4 +30,20 @@ render (
 ```
 
 Now that we’re providing the colors value in context, the App component no longer needs to hold state and pass it down to its children as props.
+The `App` component, or any of its children, can retrieve data from the context. An example is shown below.
+
+```jsx
+
+import React, { useContext } from "react";
+import { ColorContext } from './'
+
+export default function App() {
+  const { colors } = useContext(ColorContext);
+return (
+  <>
+    ...  
+  </>
+);
+}
+```
 
